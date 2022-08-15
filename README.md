@@ -11,5 +11,5 @@ kapp deploy -n tap-install --yes -a tap-tenants -c \
 
 Note: app-onboarding-secrets-sealed.yml is a result of running the command below. Automatic decryption happens in the intended cluster, where kubeseal controller is running:
 ```
-k create secret generic app-onboarding-secrets -n tap-install --from-file=app-onboarding-secret-values.yaml=secrets.yml --dry-run=client -oyaml | kubeseal --cert **path-to-pem=file**/kubeseal-cert.pem > app-onboarding-secrets-sealed.yml
+k create secret generic app-onboarding-secrets -n tap-install --from-file=app-onboarding-secret-values.yaml=secrets.yml --dry-run=client -oyaml | kubeseal --cert kubeseal-cert.pem > app-onboarding-secrets-sealed.yml
 ```
